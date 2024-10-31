@@ -26,13 +26,12 @@
     </recommends>
     <screenshots>
 	    <screenshot type="default">
-		    <image>https://raw.githubusercontent.com/powpingdone/com.github.softfever.orcaslicer/master/images/1.png</image>
+		    <image>https://raw.githubusercontent.com/anarsoul/io.github.softfever.OrcaSlicer/refs/heads/master/images/1.png</image>
 		    <caption>A model ready to be sliced on a buildplate.</caption>
 	    </screenshot>
 	    <screenshot>
-		<image>https://raw.githubusercontent.com/powpingdone/com.github.softfever.orcaslicer/master/images/2.png
-	</image>
-	<caption>A calibration test ready to be printed out.</caption>
+		    <image>https://raw.githubusercontent.com/anarsoul/io.github.softfever.OrcaSlicer/refs/heads/master/images/2.png</image>
+	        <caption>A calibration test ready to be printed out.</caption>
 	    </screenshot>
     </screenshots>
     <description>
@@ -42,7 +41,7 @@
 	  <color type="primary" scheme_preference="light">#009688</color>
 	</branding>
     <releases>
-	    <release version="2.0.0-951fc8e" date="2024-01-30"> <url>https://github.com/SoftFever/OrcaSlicer/commit/951fc8e98a0d5ca0ccb254315646ce7889a44836</url>
+	    <release version="2.2.0" date="2024-10-27"> <url>https://github.com/SoftFever/OrcaSlicer/commit/1088d0a6c713250ee3d14da791e27b76b4339363</url>
         </release>
     </releases>
 </component>
