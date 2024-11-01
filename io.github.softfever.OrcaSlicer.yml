@@ -77,8 +77,8 @@ modules:
         url: https://github.com/KDE/extra-cmake-modules
         tag: v5.249.0
     cleanup:
-      - / 
- 
+      - /
+
   - name: orca_wxwidgets
     buildsystem: simple
     build-commands:
@@ -117,8 +117,7 @@ modules:
     sources:
       - type: git
         url: https://github.com/SoftFever/Orca-deps-wxWidgets
-        branch: master
-        path: ../
+        commit: 5c55131cbfbfb15ddbc1dca3f0567fc18fd15db5
       - type: patch
         path: patches/0001-Enable-using-a-dark-theme-when-Gnome-dark-style-is-s.patch
     cleanup:
