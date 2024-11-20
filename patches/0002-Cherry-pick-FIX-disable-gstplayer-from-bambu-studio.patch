@@ -1,0 +1,23 @@
+From 411fc596b1e63e8d84ca2339c3addfdb4436be0d Mon Sep 17 00:00:00 2001
+From: Mack <yongfang.bian@bambulab.com>
+Date: Sun, 25 Aug 2024 12:11:55 -0500
+Subject: [PATCH] Cherry-pick "FIX: disable gstplayer" from bambu-studio
+
+---
+ build/cmake/init.cmake | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/build/cmake/init.cmake b/build/cmake/init.cmake
+index 2826e2a3a72b..557b880f976e 100644
+--- a/build/cmake/init.cmake
++++ b/build/cmake/init.cmake
+@@ -492,9 +492,6 @@ if(wxUSE_GUI)
+ 
+         set(wxUSE_GSTREAMER ${GSTREAMER_FOUND})
+         set(wxUSE_GSTREAMER_PLAYER OFF)
+-        if(GSTREAMER_PLAYER_INCLUDE_DIRS)
+-            set(wxUSE_GSTREAMER_PLAYER ON)
+-        endif()
+ 
+         if(NOT GSTREAMER_FOUND)
+             message(WARNING "GStreamer not found, wxMediaCtrl won't be available")
