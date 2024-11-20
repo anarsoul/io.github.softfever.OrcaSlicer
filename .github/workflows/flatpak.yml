@@ -1,0 +1,28 @@
+name: Flatpak
+
+on:
+  push:
+    branches:
+     - master
+
+  pull_request:
+  workflow_dispatch: # allows for manual dispatch
+
+jobs:
+  flatpak:
+    name: "Flatpak"
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-46
+      options: --privileged
+    steps:
+    - name: "Remove unneeded stuff to free disk space"
+      run:
+        sudo rm -rf /usr/share/dotnet /opt/ghc "/usr/local/share/boost" "$AGENT_TOOLSDIRECTORY"
+    - uses: actions/checkout@v4
+    - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+      with:
+        bundle: orcaslicer.flatpak
+        manifest-path: io.github.softfever.OrcaSlicer.yml
+        cache-key: flatpak-builder-${{ github.sha }}
+        cache: false
