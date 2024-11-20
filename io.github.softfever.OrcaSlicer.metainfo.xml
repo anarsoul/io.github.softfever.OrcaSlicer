@@ -41,7 +41,7 @@
 	  <color type="primary" scheme_preference="light">#009688</color>
 	</branding>
     <releases>
-	    <release version="2.2.0" date="2024-10-27"> <url>https://github.com/SoftFever/OrcaSlicer/commit/1088d0a6c713250ee3d14da791e27b76b4339363</url>
+        <release version="2.2.0" date="2024-10-27"> <url>https://github.com/SoftFever/OrcaSlicer/releases/tag/v2.2.0</url>
         </release>
     </releases>
 </component>
