@@ -12,17 +12,31 @@ jobs:
   flatpak:
     name: "Flatpak"
     runs-on: ubuntu-latest
+    env:
+      ver:
     container:
       image: bilelmoussaoui/flatpak-github-actions:gnome-46
       options: --privileged
+      volumes:
+        - /usr/local/lib/android:/usr/local/lib/android
+        - /usr/share/dotnet:/usr/share/dotnet
+        - /opt/ghc:/opt/ghc1
+        - /usr/local/share/boost:/usr/local/share/boost1
     steps:
     - name: "Remove unneeded stuff to free disk space"
       run:
-        sudo rm -rf /usr/share/dotnet /opt/ghc "/usr/local/share/boost" "$AGENT_TOOLSDIRECTORY"
+        rm -rf /usr/local/lib/android/* /usr/share/dotnet/* /opt/ghc1/* "/usr/local/share/boost1/*"
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    - name: Get version using most recent tag
+      run: |
+        git config --global --add safe.directory /__w/io.github.softfever.OrcaSlicer/io.github.softfever.OrcaSlicer
+        ver=$(git describe --tags)
+        echo "ver=$ver" >> $GITHUB_ENV
+      shell: bash
     - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
       with:
-        bundle: orcaslicer.flatpak
+        bundle: OrcaSlicer-${{ env.ver }}.flatpak
         manifest-path: io.github.softfever.OrcaSlicer.yml
-        cache-key: flatpak-builder-${{ github.sha }}
-        cache: false
+        cache: true
